@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <img src="AW Logo.png" alt="Avatar" class="avatar" style="width:200px">
+        <h2 id="form-title">Login</h2>
+
+        <!-- Login Form -->
+        <form id="login-form" action="index.html" method="POST">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+            <button type="submit">Login</button>
+            <div class="forgot-container">
+                <a href="#" id="forgot-link" class="forgot">Forgot password?</a>
+            </div>
+            <div class="extra">
+                <p>Don't have an account? <a href="register.html">Register</a></p>
+            </div>
+        </form>
+
+        <!-- Forgot Password Form -->
+        <form id="forgot-form" action="#" method="POST" style="display:none;">
+            <div class="input-group">
+                <label for="forgot-username">Username</label>
+                <input type="text" id="forgot-username" name="username" required placeholder="Enter your username">
+            </div>
+            <button type="submit">Retrieve Password</button>
+            <div class="forgot-container">
+                <a href="#" id="login-link" class="forgot">Back to login</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('forgot-link').addEventListener('click', function() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('forgot-form').style.display = 'block';
+            document.getElementById('form-title').innerText = 'Forgot Password';
+        });
+
+        document.getElementById('login-link').addEventListener('click', function() {
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('forgot-form').style.display = 'none';
+            document.getElementById('form-title').innerText = 'Login';
+        });
+    </script>
+</body>
+</html>

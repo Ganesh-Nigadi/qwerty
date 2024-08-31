@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.menu {
+  float: left;
+  width: 20%;
+  color: #fff;
+}
+.menuitem {
+  padding: 8px;
+  margin-top: 7px;
+  border-bottom: 2px solid #0d1be2;
+  color: #ffeb3b;
+}
+.main {
+  float: left;
+  width: 60%;
+  padding: 0 20px;
+  overflow: hidden;
+  color: #000000;
+}
+.right {
+  background-color: rgba(7, 105, 56, 0);
+  float: left;
+  width: 20%;
+  padding: 10px 15px;
+  margin-top: 7px;
+}
+.img {
+  width: 100%;
+}
+#frame {
+  margin: 0 auto;
+  height: 400px;
+  width: 100%;
+  max-width: 100%;
+}
+#frame input[type=radio] {
+  display: none;
+}
+#frame label {
+  cursor: pointer;
+  text-decoration: none;
+}
+#slides {
+  position: relative;
+  z-index: 1;
+}
+#overflow {
+  width: 100%;
+  overflow: hidden;
+}
+#frame1:checked~#slides .inner {
+  margin-left: 0;
+}
+#frame2:checked~#slides .inner {
+  margin-left: -100%;
+}
+#frame3:checked~#slides .inner {
+  margin-left: -200%;
+}
+#frame4:checked~#slides .inner {
+  margin-left: -300%;
+}
+#slides .inner {
+  transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  width: 400%;
+  line-height: 0;
+  height: 400px;
+}
+#slides .frame {
+  width: 25%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#controls {
+  margin: -50px 0 0 0;
+  width: 100%;
+  height: 50px;
+  z-index: 3;
+  position: relative;
+}
+#controls label {
+  transition: opacity 0.2s ease-out;
+  display: none;
+  width: 50px;
+  height: 50px;
+  opacity: .4;
+}
+#controls label:hover {
+  opacity: 1;
+}
+#frame1:checked~#controls label:nth-child(2),
+#frame2:checked~#controls label:nth-child(3),
+#frame3:checked~#controls label:nth-child(4),
+#frame4:checked~#controls label:nth-child(1) {
+  float: right;
+  margin: 0 -50px 0 0;
+  display: block;
+}
+#frame1:checked~#controls label:nth-last-child(2),
+#frame2:checked~#controls label:nth-last-child(3),
+#frame3:checked~#controls label:nth-last-child(4),
+#frame4:checked~#controls label:nth-last-child(1) {
+  float: left;
+  margin: 0 0 0 -50px;
+  display: block;
+}
+#bullets {
+  margin: 20px 0 20px; /* Adjusted margin to create space for dots */
+  text-align: center;
+  z-index: 3;
+  position: relative;
+}
+#bullets label {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background: #ccc;
+  margin: 0 10px;
+}
+#frame1:checked~#bullets label:nth-child(1),
+#frame2:checked~#bullets label:nth-child(2),
+#frame3:checked~#bullets label:nth-child(3),
+#frame4:checked~#bullets label:nth-child(4) {
+  background: #d95252;
+}
+.footer {
+  background-color: #000000;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px; /* Added margin to create space between dots and footer */
+  font-size: 12px;
+}
+</style>
+</head>
+<body>
+
+<div style="background-color:#ffffff00;padding:15px;text-align: center;">
+  <h1>Ganesh Nigadi</h1>
+  <h3>2nd Year Engineering Student in Btech CSE at DYPIU</h3>
+</div>
+
+<div style="overflow:auto">
+  <div class="menu">
+    <h2>Menu</h2>
+    <div class="menuitem">Profile</div>
+    <div class="menuitem">Social Links</div>
+    <div class="menuitem">Gallery</div>
+    <div class="menuitem">Connect Me</div>
+  </div>
+
+  <div class="main">
+    <h2>About Me</h2>
+    <p>Hello! I'm Ganesh, a versatile individual with a background steeped in the competitive gaming world, where I cultivated strategic thinking, teamwork, and adaptability. Transitioning from gaming to the tech sphere, I've discovered a new passion in content creation, particularly on YouTube, where I aim to foster creativity and innovation within the tech community.<br>
+      I'm eager to connect with fellow enthusiasts, professionals, and educators. Let's collaborate, exchange ideas, and embark on new learning journeys together. Feel free to reach out—I'm always open to meaningful connections and discussions aimed at driving positive change and innovation in technology.</p>
+      
+    <div id="frame">
+      <input type="radio" name="frame" id="frame1" checked />
+      <input type="radio" name="frame" id="frame2" />
+      <input type="radio" name="frame" id="frame3" />
+      <input type="radio" name="frame" id="frame4" />
+      <div id="slides">
+        <div id="overflow">
+          <div class="inner">
+            <div class="frame">
+              <img src="main.jpg" class="img">
+            </div>
+            <div class="frame">
+              <img src="1.jpg" class="img">
+            </div>
+            <div class="frame">
+              <img src="2.jpg" class="img">
+            </div>
+            <div class="frame">
+              <img src="3.jpg" class="img">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="controls">
+        <label for="frame1"></label>
+        <label for="frame2"></label>
+        <label for="frame3"></label>
+        <label for="frame4"></label>
+      </div>
+      <div id="bullets">
+        <label for="frame1"></label>
+        <label for="frame2"></label>
+        <label for="frame3"></label>
+        <label for="frame4"></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <h2>What I Do</h2>
+    <p>Ex-Competitive Gamer |Tech YouTuber | Pursuing BTech in Computer Science.</p>
+    <h2>Internship</h2>
+    <p>I am currently doing Internship at Agarwal Fashions. <br>Recently Worked as Ex Site Assistant Intern at Arwade Infrastructures </p>
+    <h2>Projects</h2>
+    <p>My projects are available on my Linkedin and Github profile.<br>For more Projects you can check out my Collage Profile.</p> 
+  </div>
+</div>
+
+<div class="footer">
+  Designed And Developed By Ganesh Nigadi
+</div>
+
+<script>
+let slideIndex = 0;
+const slides = document.querySelectorAll('#frame input[type="radio"]');
+
+function showSlide(n) {
+  slides[slideIndex].checked = false; 
+  slideIndex = (n + slides.length) % slides.length;
+  slides[slideIndex].checked = true;
+}
+
+function nextSlide() {
+  showSlide(slideIndex + 1);
+}
+
+setInterval(nextSlide, 2000); // Change slide every 2 seconds
+</script>
+
+</body>
+</html>
